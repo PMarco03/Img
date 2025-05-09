@@ -2,11 +2,57 @@
 <html>
 <head>
   <title>Sei stata Rick Rollata</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: black;
+    }
+
+    #startButton {
+      padding: 20px 40px;
+      font-size: 24px;
+      border: none;
+      border-radius: 12px;
+      background-color: #ff4081;
+      color: white;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      display: none;
+    }
+  </style>
 </head>
-<body style="margin: 0; overflow: hidden;">
-  <video autoplay muted loop playsinline style="width: 100vw; height: 100vh; object-fit: cover;">
+<body>
+  <button id="startButton">Cliccami</button>
+
+  <video id="rickVideo" loop playsinline>
     <source src="r-r.mp4" type="video/mp4">
     Il tuo browser non supporta il tag video.
   </video>
+
+  <script>
+    const button = document.getElementById('startButton');
+    const video = document.getElementById('rickVideo');
+
+    button.addEventListener('click', () => {
+      button.style.display = 'none';
+      video.style.display = 'block';
+      video.muted = false;
+      video.play();
+    });
+  </script>
 </body>
 </html>
